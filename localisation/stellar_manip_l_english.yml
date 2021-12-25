@@ -1,0 +1,266 @@
+﻿l_english:
+ 
+ sr_stellar_plasma:0 "Stellar Plasma"
+ sr_stellar_plasma_desc:0 "Highly energetic plasma extracted directly from stars"
+
+ #AP
+  ap_giga_stellar_manipulation:0 "Stellar Manipulation"
+  ap_giga_stellar_manipulation_desc:0 "Using the methods employed on substellar compressors and star lifters on a large scale would allow us to shape whole stars"
+  ap_stellar_manip_extra_desc:0 "Allows to change the class of stars via decisions once the proper methods are studied"
+
+ #Techs
+  tech_gigas_stellar_manip_1:0 "Basic Stellar Plasma Collection"
+  tech_gigas_stellar_manip_1_desc:0 "Exploding stars expel a lot of plasma that can be collected for our purposes"
+  basic_stellar_manip:0 "Allows us to collect plasma from exploding stars"
+  basic_stellar_manip_desc:0 "Fusion supressor explosions will create stellar plasma"
+
+  tech_stellar_manip_retrofit:0 "Stellar Plasma megastructure retrofitting"
+  tech_stellar_manip_retrofit_desc:0 "We can retrofit our dyson spheres and star lifters to collect small amounts of stellar plasma during regular operation"
+  allow_mega_retrofit:0 "Retrofits our old megastructures to produce stellar plasma"
+  allow_mega_retrofit_desc:0 "Dyson spheres and star lifters now produce stellar plasma in small amounts"
+ 
+  tech_stellar_manip_harvester:0 "Stellar Plasma Harvester"
+  tech_stellar_manip_harvester_desc:0 "Rather than depend on supernovas to give us the plasma we shall build a harvester to get it ourselves"
+
+  tech_stellar_manip_injector:0 "Stellar Matter Injector"
+  tech_stellar_manip_injector_desc:0 "Now that we have stellar plasma in large amounts we can inject it into smaller stars to increase their size"
+ 
+  tech_stellar_assembler:0 "Mass Stellar Ignition"
+  tech_stellar_assembler_desc:0 "Now that we can ignite and build stars from scratch we may be able to incorporate the designs from the celestialcraft fabricators we might be able to build our systemcrafts in a much more efficient manner"
+  allow_star_assembly:0 "§RAllows the construction of systemcraft assemblers"
+  allow_star_assembly_desc:0 "A gigastructure capable of building a systemcraft in one stage"
+
+  tech_o_class_war_system:0 "Class O Systemcraft"
+  tech_o_class_war_system_desc:0 "Class O stars have a massive power output, utilizing one for our systemcrafts can allow them to field much more heavy weaponry"
+  allow_o_class_war_system:0 "RAllows for the construction of EO-ClassR Systemcrafts, way more powerful than our regular systemcrafts"
+
+ #Decisions
+  star_manip_fail:0 "RCannot be a binary/trinary system or have habitable worlds"
+  #Harvesting
+   decision_harvest_stellar_matter_o:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_b:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_m_giant:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_a:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_f:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_g:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_k:0 "Harvest Stellar Matter"
+   decision_harvest_stellar_matter_m:0 "Harvest Stellar Matter"
+
+   decision_build_stellar_matter_harvester:0 "Starts construction of a Stellar Matter Harvester"
+
+   decision_harvest_stellar_matter_o_desc:0 "Harvest plasma from this star decreasing it's size to a class B"
+   decision_harvest_stellar_matter_b_desc:0 "Harvest plasma from this star decreasing it's size to a class A"
+   decision_harvest_stellar_matter_m_giant_desc:0 "Harvest plasma from this star decreasing it's size to a class M"
+   decision_harvest_stellar_matter_a_desc:0 "Harvest plasma from this star decreasing it's size to a class F"
+   decision_harvest_stellar_matter_f_desc:0 "Harvest plasma from this star decreasing it's size to a class G"
+   decision_harvest_stellar_matter_g_desc:0 "Harvest plasma from this star decreasing it's size to a class K"
+   decision_harvest_stellar_matter_k_desc:0 "Harvest plasma from this star decreasing it's size to a class M"
+   decision_harvest_stellar_matter_m_desc:0 "Harvest plasma from this star turning it into a brown dwarf"
+  #Injecting
+   decision_inject_stellar_mass_b:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_m_giant:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_a:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_f:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_g:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_k:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_m:0 "Inject Stellar Matter"
+   decision_inject_stellar_mass_ignited:0 "Inject Stellar Matter"
+   
+   decision_build_stellar_matter_injector:0 "Starts construction of a Stellar Matter Injector"
+
+   decision_inject_stellar_mass_b_desc:0 "Inject plasma into this star increasing it's size to a class O"
+   decision_inject_stellar_mass_m_giant_desc:0 "Inject plasma into this star increasing it's size to a class B"
+   decision_inject_stellar_mass_a_desc:0 "Inject plasma into this star increasing it's size to a class B"
+   decision_inject_stellar_mass_f_desc:0 "Inject plasma into this star increasing it's size to a class A"
+   decision_inject_stellar_mass_g_desc:0 "Inject plasma into this star increasing it's size to a class F"
+   decision_inject_stellar_mass_k_desc:0 "Inject plasma into this star increasing it's size to a class G"
+   decision_inject_stellar_mass_m_desc:0 "Inject plasma into this star increasing it's size to a class K"
+   decision_inject_stellar_mass_ignited_desc:0 "Inject plasma into this star increasing it's size to a class M"
+
+ #Megastructures
+  #injector
+   stellar_mass_injector_0:0 "Stellar Mass injector Placeholder Base"
+   stellar_mass_injector_0_DESC:0 "You shouldn't be seeing this"
+
+   #0
+   stellar_mass_injector_ignited_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_b_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_m_giant_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_a_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_f_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_g_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_k_0:0 "Stellar Mass injector Construction site"
+   stellar_mass_injector_m_0:0 "Stellar Mass injector Construction site"
+
+   stellar_mass_injector_ignited_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_m_giant_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_b_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_a_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_f_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_g_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_k_0_DESC:0 "A stellar mass injector is being built here"
+   stellar_mass_injector_m_0_DESC:0 "A stellar mass injector is being built here"
+
+   #1
+   stellar_mass_injector_ignited_1:0 "Stellar Mass injector"
+   stellar_mass_injector_m_giant_1:0 "Stellar Mass injector"
+   stellar_mass_injector_b_1:0 "Stellar Mass injector"
+   stellar_mass_injector_a_1:0 "Stellar Mass injector"
+   stellar_mass_injector_f_1:0 "Stellar Mass injector"
+   stellar_mass_injector_g_1:0 "Stellar Mass injector"
+   stellar_mass_injector_k_1:0 "Stellar Mass injector"
+   stellar_mass_injector_m_1:0 "Stellar Mass injector"
+
+   stellar_mass_injector_ignited_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_b_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_m_giant_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_a_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_f_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_g_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_k_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+   stellar_mass_injector_m_1_DESC:0 "A stellar mass injector injecting plasma onto a star"
+
+  #Harvester
+   stellar_mass_harvester_0:0 "Stellar Mass Harvester Placeholder Base"
+   stellar_mass_harvester_0_DESC:0 "You shouldn't be seeing this"
+
+   #0
+   stellar_mass_harvester_o_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_b_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_m_giant_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_a_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_f_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_g_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_k_0:0 "Stellar Mass Harvester Construction site"
+   stellar_mass_harvester_m_0:0 "Stellar Mass Harvester Construction site"
+
+   stellar_mass_harvester_o_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_m_giant_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_b_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_a_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_f_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_g_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_k_0_DESC:0 "A stellar mass harvester is being built here"
+   stellar_mass_harvester_m_0_DESC:0 "A stellar mass harvester is being built here"
+
+   #1
+   stellar_mass_harvester_o_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_m_giant_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_b_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_a_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_f_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_g_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_k_1:0 "Stellar Mass Harvester"
+   stellar_mass_harvester_m_1:0 "Stellar Mass Harvester"
+
+   stellar_mass_harvester_o_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_b_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_m_giant_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_a_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_f_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_g_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_k_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+   stellar_mass_harvester_m_1_DESC:0 "A stellar mass harvester collecting plasma from a star"
+
+  #Star Printer
+   systemcraft_assembler_0:0 "Systemcraft Assembler Construction Site"
+   systemcraft_assembler_0_DESC:0 "The size were a Systemcraft Assembler will be constructed"
+   systemcraft_assembler_0_MEGASTRUCTURE_DETAILS:0 "A extremely advanced fabricator capable of assembling a Stellar Systemcraft in one piece
+   
+   systemcraft_assembler_1:0 "Systemcraft Assembler Stellar Ignitor"
+   systemcraft_assembler_1_DESC:0 "The heart of the structure, a, for now non-functioning, stellar ignitor that will soon create new stars for a systemcraft"
+   
+   systemcraft_assembler_2:0 "Systemcraft Assembler Operational Frame"
+   systemcraft_assembler_2_DESC:0 "The frame where the crew, computers and logistical systems needed for the systemcraft assembler will go"
+  
+   systemcraft_assembler_3:0 "Systemcraft Assembler Celestial Fabricators"
+   systemcraft_assembler_3_DESC:0 "The fabricators that will move enormous amounts of planetary matter to assemble the celestial bodies needed for the Stellar Systemcraft"
+   
+   systemcraft_assembler_4:0 "Systemcraft Assembler Colossal Drydock"
+   systemcraft_assembler_4_DESC:0 "Extra fabricators to assemble other components needed for the systemcraft such as weapons and thrusters"
+   
+   systemcraft_assembler_5:0 "Systemcraft Assembler"
+   systemcraft_assembler_5_DESC:0 "A finished Systemcraft Assembler ready to fabricate a Stellar Systemcraft"
+
+   systemcraft_assembler_make_system:0 "Assemble Stellar Systemcraft"
+   systemcraft_assembler_make_system_DESC:0 "Builds a Stellar Systemcraft"
+
+   systemcraft_assembler_make_o_system:0 "Assemble Class O Systemcraft"
+   systemcraft_assembler_make_o_system_DESC:0 "Builds a massively powerful Class O Stellar Systemcraft"
+
+  #O war system
+    war_system_o_0:0 "$name_war_system$ Construction Site"
+    war_system_o_0_DESC:0 "The construction site for a future $name_war_system$, possibly the largest and most powerful vessel ever built in this galaxy."
+    war_system_0_MEGASTRUCTURE_DETAILS:0 "$giga_list_category_gigastructure$ - $giga_list_category_celestial_warship$\nConverts a §YStar§!, §Y5 Attack Moons§! and §Y4 Behemoth Planetcrafts§! into a §YSystemcraft§!\n$giga_list_removes_system_planets$\n§LA gigantic weaponized star system, possessing tremendous amounts of weaponry." #megalistentry SYSTEMCRAFT
+    war_system_0_CONSTRUCTION_INFO_DELAYED:0 "$giga_list_additional_data$ - When destroyed the §YSystemcraft§! will split into its constituent §Y4 Attack Moons§! and §Y5 Behemoth Planetcrafts§!.\n§RWARNING! AVOID PUTTING HULL-REGENERATION COMPONENTS ON THE SYSTEMCRAFT AS IT IS LIKELY TO CAUSE OVERFLOW AND DELETE THE SHIP!§!"
+
+    war_system_o_1:0 "Systemcraft Solar Compressor"
+    war_system_o_1_DESC:0 "Two massive gravitocompressors are shrinking down the system's central star and harvesting its energy in order to power the future Systemcraft's powerful weaponry."
+
+    war_system_o_2:0 "Systemcraft Synchronized Planetary Thrusters"
+    war_system_o_2_DESC:0 "Powered by the central star, this set of absolutely gigantic thrusters embedded within a large planet and two smaller moons will serve as the Systemcraft's means of propulsion. Do not inhale the exhaust."
+
+    war_system_o_3:0 "Systemcraft Lunar Supports"
+    war_system_o_3_DESC:0 "Two smaller celestial bodies supporting massive structural trusses on the side of the Systemcraft in order to reinforce its structural integrity even more."
+
+    war_system_o_4:0 "Systemcraft Celestial Erasers"
+    war_system_o_4_DESC:0 "The Systemcraft's Celestial Erasers consist of two $name_war_planet$s attached to the main structure. The star's colossal energy output allows them to field weapons much more powerful than on a typical Planetcraft. These weapons are capable of obliterating basically anything standing in the way of the Systemcraft."
+
+    war_system_o_5:0 "$name_war_system$"
+    war_system_o_5_DESC:0 "A completed $name_war_system$, complete with an Ecumenopolis and a smaller world to house most of its population, which serves as the crew."
+
+ #Stellar Manipulation Events
+  star_manip.1001:0 "Stellar Matter Harvester Construction Began"
+  star_manip.1001_desc:0 "The construction of a new stellar matter harvester has began in the [FROM.GetName] system, once built it will start harvesting plasma from the star"
+
+  star_manip.102:0 "Stellar Matter Harvester Constructed"
+  star_manip.102_desc:0 "A new stellar matter harvester has been built in the [FROM.GetName] system and is already collecting plasma, it will take 3 years for the star to decrease in size, this time is doubled for class O stars"
+
+
+  star_manip.1002:0 "Stellar Matter Injector Construction Began"
+  star_manip.1002_desc:0 "The construction of a new stellar matter injector has began in the [FROM.GetName] system, once built it will start injecting plasma into the star to increase it's size"
+
+  star_manip.105:0 "Stellar Matter Injector Constructed"
+  star_manip.105_desc:0 "A new stellar matter injector has been built in the [FROM.GetName] system and is already running, it will take 3 years for the star to increase in size, this time is doubled for class B stars"
+
+ #Star Printer Events
+   star_printer.101.name:0 "Systeemcraft Assembler Site Constructed"
+   star_printer.101.desc:0 "We have begun the construction of a Systemcraft Assembler, once completed this structure will allow us to efficiently build systemcrafts without the previous limitations"
+   star_printer.101.a:0 "We shall forever change the galaxy's history"
+
+   star_printer.102.name:0 "Systemcraft Assembler Stellar Ignitor Constructed"
+   star_printer.102.desc:0 "A stellar ignitor capable of building a star from scratch has been finished, this structure shall serve as the heart for a systemcraft assembler capable of building the most powerful ship in the galaxy"
+    star_printer.102.a:0 "Moving on"
+
+   star_printer.103.name:0 "Systemcraft Assembler Logistical Frame Constructed"
+   star_printer.103.desc:0 "With the system obstacles gone and the [FROM.GetName] harvested we are ready to proceed. The central ring of the Systemcraft Assembler has been built and will serve as crew quarters and central logistical system for the structure to make sure everything goes where it needs to go"
+   star_printer.103.a:0 "The plasma extracted from the star will be useful"
+
+   star_printer.104.name:0 "Systemcraft Assembler Celestial Fabricators Built"
+   star_printer.104.desc:0 "These macrofabricators that will assemble the attack moons and planetcrafts needed for the Stellar Systemcraft, the use of a external power source and logistical system can allow modifications to our usual design to be much smaller and cheaper than our usual models"
+   star_printer.104.a:0 "So we could make these cheaper the whole time?"
+
+   star_printer.105.name:0 "Systemcraft Assembler Drydock"
+   star_printer.105.desc:0 "The extra assembly yards have been built, these systems will build extra components needed for the vessel such as thrusters, weapons, computers and others"
+   star_printer.105.a:0 "So we could make these cheaper the whole time?"
+
+   star_printer.106.name:0 "Systemcraft Assembler Completed"
+   star_printer.106.desc:0 "With the massive storage tanks finished we are finally done, a systemcraft assembler has been finished and is now ready to construct vessels. All systemcrafts built from a assembler are automated and have no need for a crew to be acquired from a planet, they will also benefit from increased defensive and offensive capabilities but at a higher cost and build time"
+   star_printer.106.a:0 "We shall shape the galaxy to our will"
+
+   #systemcraft built
+   star_printer.1000.name:0 "Systemcraft Assembled"
+   star_printer.1000.desc:0 "The impossible has been done! A new stellar systemcraft built from scratch in one single stage now flies under our command, systemcrafts built from a assembler are automated and will benefit from increased defensive and offensive capabilities."
+   star_printer.1000.a:0 "Go forth and conquer"
+
+ #Class O Systemcraft
+   giga_o_systemcraft:0 "Class O Stellar Systemcraft"
+   systemcraft_ship_o_bowgun_01_key:0 "Primary Annihilator Lances"
+   systemcraft_ship_o_bow_01_key:0 "Existence Removal Beams"
+   systemcraft_ship_o_mid_01_key:0 "Nicoll-Dyson Capacitor Array"
+   systemcraft_ship_o_stern_01_key:0 "Secondary Armament"
+   systemcraft_ship_o_sternthrusters_01_key:0 "Grand Stellar Hangars"
+   systemcraft_ship_o_kugel_01_key:0 "Omega Kugelblitz Protectors"
+
+   REACTOR_SYSTEM_O:0 "Captive Class O Star"
+   REACTOR_SYSTEM_O_DESC:0 "A entire Class O star is maintaned in this gargantuan vessel providing massive levels of power"

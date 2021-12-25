@@ -1,0 +1,34 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ap_giga_stellar_manipulation"
+		texturefile = "gfx/interface/icons/ascension_perks/ap_giga_stellar_manipulation.dds"
+		alwaystransparent = yes
+	}
+}
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_star_manip_01_background"
+		texturefile = "gfx/event_pictures/star_manip_01_background.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_star_manip_02_background"
+		texturefile = "gfx/event_pictures/star_manip_02_background.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}
+
+spriteTypes = {
+	spriteType = {
+		name = "GFX_ship_part_reactor_system_o"
+		texturefile = "gfx/interface/icons/ship_parts/ship_part_reactor_system_o.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}

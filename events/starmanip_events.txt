@@ -1,0 +1,556 @@
+namespace = star_manip
+
+##########################
+#### HARVESTER EVENTS ####
+##########################
+
+planet_event = {
+	id = star_manip.0100	#triggers after stellar harvest decision to spawn the harvester megastructure
+	is_triggered_only = yes
+	location = root
+	immediate = {
+		set_planet_flag = harvesting_star
+		space_owner = {
+			country_event = {
+				id = star_manip.1001
+			}
+		}
+		solar_system = {
+			spawn_megastructure = {
+				type = stellar_mass_harvester_0
+				planet = ROOT
+				owner = space_owner
+			}
+		}
+	}
+}
+
+country_event = { #started building harvester notification
+	id = star_manip.1001
+	title = star_manip.1001
+	desc = star_manip.1001_desc
+	picture = GFX_star_manip_01_background
+	show_sound = event_dyson_sphere_build_start
+	is_triggered_only = yes
+	option = {
+		name = Pog
+	}
+}
+
+planet_event = { #Harvester Running
+    id = star_manip.101
+    desc = star_manip.101
+    is_triggered_only = yes
+    immediate = {
+		if = {
+			limit = { NOT = { has_planet_flag = harvest_pass_0 } }
+			save_event_target_as = StellarHarvestTarget
+        	space_owner = {
+        	    country_event = { id = star_manip.102 }
+        	}
+		}
+
+		#dismantle the star
+
+		if = { #class M, harvester passes once and it dies
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_m_star
+			}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_t_star
+			clear_deposits = yes
+			
+			solar_system = {
+				set_star_class = sc_t
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_m_1
+					}
+					remove_megastructure = this
+				}
+				every_system_planet = {
+					limit = { 
+						OR = {
+							is_colonizable = yes
+							is_planet_class = pc_toxic
+							is_planet_class = pc_molten
+						}
+					}
+					random_list = {
+						10 = { change_pc = pc_frozen }
+						10 = { change_pc = pc_barren }
+						2 = { change_pc = pc_barren_cold }
+					}
+				}
+				every_system_planet = {
+					limit = {
+						planet_size > 5
+					}
+					change_planet_size = -3
+				}
+			}
+		}
+						  
+		else_if = { #class K, becomes class M
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_k_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_m_star
+			
+			solar_system = {
+				set_star_class = sc_m
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_k_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class G, becomes class K
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_g_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_k_star
+			
+			solar_system = {
+				set_star_class = sc_k
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_g_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class F, becomes class G
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_f_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_g_star
+			
+			solar_system = {
+				set_star_class = sc_g
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_f_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class A, becomes class F
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_a_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_f_star
+			
+			solar_system = {
+				set_star_class = sc_f
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_a_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class B, becomes class A
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_b_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_a_star
+			
+			solar_system = {
+				set_star_class = sc_a
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_b_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class M giant, becomes class M
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_m_giant_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvesting_star
+			change_pc = pc_m_star
+			
+			solar_system = {
+				set_star_class = sc_m
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_m_giant_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #class O, becomes class B after 2 sweeps
+			limit = {
+				has_planet_flag = harvest_pass_0
+				has_planet_flag = harvest_pass_1
+				is_planet_class = pc_giga_o_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = harvest_pass_0
+			remove_planet_flag = harvest_pass_1
+			remove_planet_flag = harvesting_star
+			clear_deposits = yes
+			change_pc = pc_b_star
+			remove_modifier = giga_o_star_modifier 
+			solar_system = {
+				remove_star_flag = giga_o_star_system
+				set_star_class = sc_b
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_harvester_o_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+						  
+		else_if = { #checks if it's the second sweep for class o
+			limit = {
+				has_planet_flag = harvest_pass_0
+				is_planet_class = pc_giga_o_star
+				NOT = { has_planet_flag = harvest_pass_1 }
+			}
+			set_planet_flag = harvest_pass_1
+			planet_event = { id = star_manip.101 days = 1080 } #3 years to change size of star
+		}
+		else_if = {
+			limit = {
+				has_planet_flag = harvesting_star
+				NOT = { has_planet_flag = harvest_pass_0 }
+			}
+			set_planet_flag = harvest_pass_0
+			planet_event = { id = star_manip.101 days = 1080 } #3 years to change size of star
+		}
+    }
+}
+
+country_event = { #Harvester Built notification
+    id = star_manip.102
+    is_triggered_only = yes
+    title = star_manip.102
+    desc = star_manip.102_desc
+	picture = GFX_star_manip_01_background
+	show_sound = event_dyson_sphere_build_complete
+    location = event_target:StellarHarvestTarget
+	option = { name = POG }
+}
+
+#########################
+#### INJECTOR EVENTS ####
+#########################
+
+planet_event = {
+	id = star_manip.0103	#triggers after stellar injection decision to spawn the injector megastructure
+	is_triggered_only = yes
+	location = root
+	immediate = {
+		set_planet_flag = injecting_star
+		space_owner = {
+			country_event = {
+				id = star_manip.1002
+			}
+		}
+		solar_system = {
+			spawn_megastructure = {
+				type = stellar_mass_injector_0
+				planet = ROOT
+				owner = space_owner
+			}
+		}
+	}
+}
+
+country_event = { #started building injector notification
+	id = star_manip.1002
+	title = star_manip.1002
+	desc = star_manip.1002_desc
+	picture = GFX_star_manip_02_background
+	show_sound = event_dyson_sphere_build_start
+	is_triggered_only = yes
+	option = {
+		name = Pog
+	}
+}
+
+planet_event = {
+	id = star_manip.104
+	is_triggered_only = yes
+	immediate = {
+		log = "event 104 called"
+		if = {
+			limit = { NOT = { has_planet_flag = inject_pass_0 } }
+        	save_event_target_as = StellarInjectionTarget
+			space_owner = {
+        	    country_event = { id = star_manip.105 }
+        	}
+		}
+		###
+
+		else_if = { #Ignited star, becomes class M
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_gigaignited_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_m_star
+			
+			solar_system = {
+				set_star_class = sc_m
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_ignited_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+
+		else_if = { #Class M, becomes class K
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_m_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_k_star
+			
+			solar_system = {
+				set_star_class = sc_k
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_m_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+		
+		else_if = { #Class K, becomes class G
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_k_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_g_star
+			
+			solar_system = {
+				set_star_class = sc_g
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_k_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+		
+		else_if = { #Class G, becomes class F
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_g_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_f_star
+			
+			solar_system = {
+				set_star_class = sc_f
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_g_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+		
+		else_if = { #Class F, becomes class A
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_f_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_a_star
+			
+			solar_system = {
+				set_star_class = sc_a
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_f_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+		
+		else_if = { #Class A, becomes class B
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_a_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = injecting_star
+			change_pc = pc_b_star
+			
+			solar_system = {
+				set_star_class = sc_b
+  				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_a_1
+					}
+					remove_megastructure = this
+				}
+			}
+		}
+		
+		else_if = { #class B, becomes class O after 2 passes
+			limit = {
+				has_planet_flag = inject_pass_0
+				has_planet_flag = inject_pass_1
+				is_planet_class = pc_b_star
+				}
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = inject_pass_0
+			remove_planet_flag = inject_pass_1
+			remove_planet_flag = harvesting_star
+
+			#properly spawns a class O star
+			clear_deposits = yes
+			add_deposit = d_energy_10
+			add_deposit = d_energy_10
+			change_pc = pc_giga_o_star
+			set_planet_size = 25
+			add_modifier = {
+				modifier = giga_o_star_modifier
+				days = -1
+			}
+			create_ambient_object = {
+				type = "giga_o_star_nebula_1"
+				entity_offset_height = 0
+				location = this
+			}
+			last_created_ambient_object = {
+				set_location = {
+					target = prev
+					distance = 0
+					angle = random
+				}
+				set_ambient_object_flag = o_star_solar_wind
+			}
+			
+			solar_system = {
+				set_star_class = sc_giga_o_star
+				set_star_flag = giga_o_star_system
+				random_system_megastructure = {
+    				limit = { 
+      					is_megastructure_type = stellar_mass_injector_b_1
+					}
+					remove_megastructure = this
+				}
+				every_system_planet = {
+					limit = { 
+						OR = {
+							is_colonizable = yes
+							is_planet_class = pc_toxic
+							is_planet_class = pc_frozen
+							is_planet_class = pc_barren_cold
+						}
+					}
+					random_list = {
+						10 = { change_pc = pc_molten }
+						10 = { change_pc = pc_barren }
+						2 = { change_pc = pc_broken }
+						1 = { change_pc = pc_shattered }
+					}
+				}
+				every_system_planet = {
+					limit = {
+						planet_size > 5
+					}
+					change_planet_size = -3
+				}
+			}
+		}
+		else_if = { #checks if it's the second sweep for class o
+			limit = {
+				has_planet_flag = inject_pass_0
+				is_planet_class = pc_b_star
+				NOT = { has_planet_flag = inject_pass_1 }
+			}
+			set_planet_flag = inject_pass_1
+			planet_event = { id = star_manip.104 days = 1080 } #3 years to change size of star
+		}
+
+		###
+		if = {
+			limit = {
+				has_planet_flag = injecting_star
+				NOT = { has_planet_flag = inject_pass_0 }
+			}
+			set_planet_flag = inject_pass_0
+			log = "inject pass flag set"
+			planet_event = { id = star_manip.104 days = 1080 } #3 years to change size of star
+		}
+	}
+}
+
+country_event = { #Injector Built notification
+    id = star_manip.105
+    is_triggered_only = yes
+    title = star_manip.105
+    desc = star_manip.105_desc
+	picture = GFX_star_manip_02_background
+	show_sound = event_dyson_sphere_build_complete
+    location = event_target:StellarInjectionTarget
+	option = { name = POG }
+}

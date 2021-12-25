@@ -1,0 +1,18 @@
+giga_o_system_craft = {
+	create_fleet = {
+		name = "The Stellar Systemcraft"
+		settings = {
+			spawn_debris = no
+			can_change_composition = no
+			is_boss = yes
+		}
+		effect = {
+			set_owner = prev
+			create_ship = {
+				name = "The Stellar Systemcraft"
+				graphical_culture = root.from
+				random_existing_design = giga_o_systemcraft
+			}
+		}
+	}
+}
