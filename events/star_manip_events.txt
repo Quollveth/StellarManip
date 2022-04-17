@@ -28,7 +28,7 @@ country_event = {
 	location = event_target:star_manip_system
 
 	option = { #Good, good.
-		name = "stellar_manip.102.a"
+		name = "stellar_manip.101.a"
 	}
 }
 #harvester
@@ -43,7 +43,7 @@ country_event = {
 	location = event_target:star_manip_system
 
 	option = { #Good, good.
-		name = "stellar_manip.103.a"
+		name = "stellar_manip.101.a"
 	}
 }
 #injector
@@ -58,13 +58,16 @@ country_event = {
 	location = event_target:star_manip_system
 
 	option = { #Good, good.
-		name = "stellar_manip.104.a"
+		name = "stellar_manip.101.a"
 	}
 }
 
 ### MONTHLY EVENT, REPLACE INJECTORS IF NO RESOURCE
 country_event = {
 	id = stellar_manip.100
+	title = stellar_manip.100.title
+	desc = stellar_manip.100.desc
+	picture = GFX_star_manip_03_background
 	is_triggered_only = yes
 	trigger = {
 		any_owned_megastructure = {
@@ -84,6 +87,9 @@ country_event = {
 				}
 			}
 		}
+	}
+	option = { #Good, good.
+		name = "stellar_manip.100.a"
 	}
 }
 
@@ -171,8 +177,10 @@ planet_event = {
 					change_pc = pc_t_star
 				}
 			}
+			save_event_target_as = star_manip_planet
+			owner = { country_event = { id = stellar_manip.1001 } }
 		}
-		remove_megastructure = event_target:star_harvester
+		remove_megastructure = event_target:star_harvester		
 	}
 }
 #injector
@@ -260,6 +268,8 @@ planet_event = {
 					}
 				}
 			}
+			save_event_target_as = star_manip_planet
+			owner = { country_event = { id = stellar_manip.1002 } }
 		}
 		remove_megastructure = event_target:star_injector
 	}
@@ -292,7 +302,40 @@ planet_event = {
 					}
 				}
 			}
+			save_event_target_as = star_manip_planet
+			owner = { country_event = { id = stellar_manip.1001 } }
 		}
 		remove_megastructure = event_target:star_harvester
+	}
+}
+
+#harvester finished
+country_event = {
+	id = stellar_manip.1001
+	title = stellar_manip.1001.name
+	desc = stellar_manip.1001.desc
+	picture = GFX_star_manip_02_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_complete
+	location = event_target:star_manip_planet
+
+	option = { #Good, good.
+		name = "stellar_manip.101.a"
+	}
+}
+#injector finished
+country_event = {
+	id = stellar_manip.1002
+	title = stellar_manip.1002.name
+	desc = stellar_manip.1002.desc
+	picture = GFX_star_manip_02_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_complete
+	location = event_target:star_manip_planet
+
+	option = { #Good, good.
+		name = "stellar_manip.101.a"
 	}
 }

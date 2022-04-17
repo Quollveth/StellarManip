@@ -26,11 +26,12 @@ stellar_manipulator_0 = {
 
 	placement_rules = {
 		planet_possible = {
-			custom_tooltip = { fail_text = "no_gas_giants"						NOT = { has_planet_flag = ignited_star } }
+
 			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
 			custom_tooltip = { fail_text = "requires_no_existing_megastructure"	planet_has_no_megastructure = yes }
 			custom_tooltip = { fail_text = "requires_survey_not_habitable"		is_surveyed = { who = prev.from status = yes } is_planet_habitable = no }
 			custom_tooltip = { fail_text = "requires_standard_planet_class"		stmp_is_valid_star = yes }
+			custom_tooltip = { fail_text = "requires_no_habitable_planets"		NOT = { solar_system = { any_system_planet = { is_planet_habitable = yes } } } }
 		}
 	}
 
@@ -226,12 +227,17 @@ stellar_manipulator_2 = {
 	on_build_complete = {
 		save_event_target_as = star_manip_system
 		owner = {
-			country_event = {id = stellar_manip.102}
+			country_event = {id = stellar_manip.103}
 		}
 		fromfrom = { save_event_target_as = star_harvester }
 		fromfrom.planet = {
 			save_event_target_as = star_being_harvested
-			planet_event = { id = stellar_manip.1000 days = 7 } #2 years 730
+			if = {
+				limit = { is_planet_class = pc_giga_o_star }
+				planet_event = { id = stellar_manip.1000 days = 1460 } #4 years, for o classes it's doubled
+			} else = {
+				planet_event = { id = stellar_manip.1000 days = 730 } #2 years
+			}
 		}
 	}
 }
@@ -307,7 +313,7 @@ stellar_manipulator_3 = {
 	}
 
 	ai_weight = {
-		factor = 10
+		factor = 1
 		#maybe i should actually make weights for once, maybe not
 	}
 
@@ -318,17 +324,17 @@ stellar_manipulator_3 = {
 		} else = {
 			save_event_target_as = star_manip_system
 			owner = {
-				country_event = {id = stellar_manip.103 }
+				country_event = {id = stellar_manip.104 }
 			}
 		}
 		fromfrom = { save_event_target_as = star_injector }
 		fromfrom.planet = {
 			save_event_target_as = star_being_injected
 			if = {
-				limit = { is_planet_class = pc_giga_o_star }
-				planet_event = { id = stellar_manip.1001 days = 30 } #change to 1460
+				limit = { is_planet_class = pc_b_star }
+				planet_event = { id = stellar_manip.1001 days = 1460 } #4 years, for o classes it's doubled
 			} else = {
-				planet_event = { id = stellar_manip.1001 days = 10 } #change to 730
+				planet_event = { id = stellar_manip.1001 days = 730 } #2 years
 			}
 		}
 	}

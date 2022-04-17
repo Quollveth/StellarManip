@@ -7,12 +7,12 @@
  #AP
   ap_giga_stellar_manipulation:0 "Stellar Manipulation"
   ap_giga_stellar_manipulation_desc:0 "Using the methods employed on substellar compressors and star lifters on a large scale would allow us to shape whole stars"
-  ap_stellar_manip_extra_desc:0 "Allows to change the class of stars via decisions once the proper methods are studied"
+  ap_stellar_manip_extra_desc:0 "Allows to change the class of stars via a megastructure once the proper methods are studied"
 
  #Techs
   tech_gigas_stellar_manip_1:0 "Basic Stellar Plasma Collection"
   tech_gigas_stellar_manip_1_desc:0 "Exploding stars expel a lot of plasma that can be collected for our purposes"
-  basic_stellar_manip1:0 "Unlocks Feature: §YBasic Stellar Plasma Collection§!"
+  basic_stellar_manip1:0 "§YUnlocks Feature:§! Basic Stellar Plasma Collection"
   basic_stellar_manip1_desc:0 "Collecting super hot plasma from stars and storing it for our uses can open many possibilities."
   basic_stellar_manip2:0 "Exploit Resource: £sr_stellar_plasma£ §Y$sr_stellar_plasma$§!"
   basic_stellar_manip2_desc:0 "Highly energetic plasma extracted directly from stars"
@@ -36,10 +36,35 @@
   allow_o_class_war_system:0 "RAllows for the construction of EO-ClassR Systemcrafts, way more powerful than our regular systemcrafts"
 
  #Megastructures
+  #Stellar Manip
+   stellar_manipulator_0:0 "$stellar_manipulator$ Construction Site"
+   stellar_manipulator_0_DESC:0 "The site were a $stellar_manipulator$ will be constructed to shape the very stars."
+   stellar_manipulator_0_MEGASTRUCTURE_DETAILS:0 "$giga_list_category_megastructure$ - $giga_list_category_miscellaneous$\nCan change the class of stars by collecting or consuming £sr_stellar_plasma£ §Y$sr_stellar_plasma$§!\n§LChanges the size of stars for better utilization of scaling megastructures§!"
+  
+   stellar_manipulator_1:0 "$stellar_manipulator$"
+   stellar_manipulator_1_DESC:0 "A completed stellar manipulator, ready to shape the stars to our will"
+
+   stellar_manipulator_2:0 "Stellar Mass Harvester"
+   stellar_manipulator_2_DESC:0 "A structure to extract plasma from the star, reducing it's size in the process"
+
+   stellar_manipulator_3:0 "Stellar Mass Injector"
+   stellar_manipulator_3_DESC:0 "A structure to inject plasma into the star, increasing it's size in the process"
+
+   stellar_manipulator_o_1:0 "$stellar_manipulator_1$"
+   stellar_manipulator_o_1_DESC:0 "$stellar_manipulator_1_DESC"
+
+   stellar_manipulator_o_2:0 "$stellar_manipulator_2$"
+   stellar_manipulator_o_2_DESC:0 "$stellar_manipulator_2_DESC$"
+
+   stellar_manipulator_off:0 "Disabled $stellar_manipulator_3$"
+   stellar_manipulator_off_DESC:0 "This stellar mass injector has been turned off due to lack of plasma and must be restarted"
+
+   stellar_manipulator_on:0 "Restart $stellar_manipulator_3$"
+   stellar_manipulator_on_DESC:0 "Restart the injector to resume the process"
 
   #Star Printer
    systemcraft_assembler_0:0 "Systemcraft Assembler Construction Site"
-   systemcraft_assembler_0_DESC:0 "The size were a Systemcraft Assembler will be constructed"
+   systemcraft_assembler_0_DESC:0 "The site were a Systemcraft Assembler will be constructed"
    systemcraft_assembler_0_MEGASTRUCTURE_DETAILS:0 "$giga_list_category_gigastructure$ - $giga_list_category_celestial_warship$\nUses £sr_stellar_plasma£ §Y$sr_stellar_plasma$§!, £sr_solar_energy£ §YPlanetary Mass§! and £alloys£ §YAlloys§! to fabricate §YSystemcrafts§!. \n$giga_list_removes_system_planets$\n§LAn enormous stellar construct capable of assembling the mightiest crafts.§!"
 
    systemcraft_assembler_1:0 "Systemcraft Assembler Stellar Ignitor"
@@ -84,6 +109,32 @@
     war_system_o_5:0 "$name_war_system$"
     war_system_o_5_DESC:0 "A completed $name_war_system$, complete with an Ecumenopolis and a smaller world to house most of its population, which serves as the crew."
 
+ #Manipulator events
+  #Construction
+    stellar_manip.101.a:0 "Great"
+    stellar_manip.101.name:0 "$stellar_manipulator_0$ Finished"
+    stellar_manip.101.desc:0 "We finished building the construction site for a stellar manipulator, soon the very stars will be shaped to our will"
+
+    stellar_manip.102.name:0 "$stellar_manipulator_1$ Finished"
+    stellar_manip.102.desc:0 "We finished building the stellar manipulator, now we must decide what to do with the star."
+
+    stellar_manip.103.name:0 "$stellar_manipulator_2$ Finished"
+    stellar_manip.103.desc:0 "We finished building a stellar mass harvester in the [From.GetName] system, it will collect plasma from the star and decrease it's size.\n§YThe harvester takes 2 years to finish, this time is doubled when harvesting a O class star."
+
+    stellar_manip.104.name:0 "$stellar_manipulator_3$ Finished"
+    stellar_manip.104.desc:0 "We finished building a stellar mass injector in the [From.GetName] system, it will inject plasma into the star and increase it's size.\n§YThe injector takes 2 years to finish, this time is doubled when injecting a B class star." 
+  #Injector Disabled
+    stellar_manip.100.title:0 "Stellar Mass Injectors Disabled"
+    stellar_manip.100.desc:0 "Due to lack of £sr_stellar_plasma£ §Ystellar plasma§! our stellar plasma injectors have turned off and must be restarted to continue the process\n§YIf the option to do so is not showing save and load as it breaks sometimes."
+    stellar_manip.100.a:0 "We must do so at once!"
+  #Finished
+    stellar_manip.1001.name:0 "Stellar Harvesting Finished"
+    stellar_manip.1001.desc:0 "Our stellar mass harvester in the [From.GetName] system has finished and the star's size has decreased"
+  
+    stellar_manip.1002.name:0 "Stellar Injecting Finished"
+    stellar_manip.1002.desc:0 "Our stellar mass injector in the [From.GetName] system has finished and the star's size has increased"
+ 
+ 
  #Star Printer Events
    star_printer.101.name:0 "Systeemcraft Assembler Site Constructed"
    star_printer.101.desc:0 "We have begun the construction of a Systemcraft Assembler, once completed this structure will allow us to efficiently build systemcrafts without the previous limitations"
