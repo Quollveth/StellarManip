@@ -26,6 +26,7 @@ stellar_manipulator_0 = {
 
 	placement_rules = {
 		planet_possible = {
+			custom_tooltip = { fail_text = "no_gas_giants"						NOT = { has_planet_flag = ignited_star } }
 			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
 			custom_tooltip = { fail_text = "requires_no_existing_megastructure"	planet_has_no_megastructure = yes }
 			custom_tooltip = { fail_text = "requires_survey_not_habitable"		is_surveyed = { who = prev.from status = yes } is_planet_habitable = no }
@@ -391,6 +392,7 @@ stellar_manipulator_o_2 = {
 	}
 }
 
+#disabled injector
 stellar_manipulator_off = {
 	entity = "stellar_manip_full_nobeam_entity"
 	construction_entity = "stellar_manip_full_nobeam_entity"
