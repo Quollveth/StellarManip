@@ -24,34 +24,4 @@ country_event = {
 }
 
 
-planet_event = {
-	id = stellar_manip.1000
-	is_triggered_only = yes
-	hide_window = yes
-	immediate = {
-		event_target:star_being_harvested = {
-			switch = {
-				trigger = is_planet_class
-				pc_b_star = { 
-					change_pc = pc_a_star
-					solar_system = {
-						if = {
-							limit = { stmp_is_unary = yes }
-							set_star_class = sc_a
-						}
-					}
-				}
-				pc_a_star = { 
-					change_pc = pc_f_star
-					solar_system = {
-						if = {
-							limit = { stmp_is_unary = yes }
-							set_star_class = sc_f
-						}
-					}
-				}
-			}
-		}
-		remove_megastructure = event_target:star_harvester
-	}
-}
+

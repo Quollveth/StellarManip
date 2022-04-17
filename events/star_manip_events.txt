@@ -88,7 +88,87 @@ country_event = {
 }
 
 ### MAIN EVENT
-
+planet_event = {
+	id = stellar_manip.1000
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		event_target:star_being_harvested = {
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = megastructure
+			switch = {
+				trigger = is_planet_class
+				pc_b_star = { 
+					change_pc = pc_a_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_a
+						}
+					}
+				}
+				pc_m_giant_star = { 
+					change_pc = pc_m_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_m
+						}
+					}
+				}
+				pc_a_star = { 
+					change_pc = pc_f_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_f
+						}
+					}
+				}
+				pc_f_star = { 
+					change_pc = pc_g_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_g
+						}
+					}
+				}
+				pc_g_star = { 
+					change_pc = pc_k_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_k
+						}
+					}
+				}
+				pc_k_star = { 
+					change_pc = pc_m_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_m
+						}
+					}
+				}
+				pc_m_star = { 
+					change_pc = pc_t_star
+					solar_system = {
+						if = {
+							limit = { stmp_is_unary = yes }
+							set_star_class = sc_t
+						}
+					}
+				}
+				pc_gigaignited_star = { 
+					change_pc = pc_t_star
+				}
+			}
+		}
+		remove_megastructure = event_target:star_harvester
+	}
+}
 #o harvester
 planet_event = {
 	id = stellar_manip.1002
@@ -102,6 +182,8 @@ planet_event = {
 	immediate = {
 		set_planet_flag = harvested_star
 		event_target:star_being_harvested = {
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = megastructure
 			change_pc = pc_b_star
 			remove_modifier = giga_o_star_modifier
 			clear_deposits = yes

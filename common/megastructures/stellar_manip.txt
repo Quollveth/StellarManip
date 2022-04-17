@@ -39,6 +39,7 @@ stellar_manipulator_0 = {
 	}
 
 	on_build_complete = {
+		fromfrom.planet = { set_planet_flag = has_megastructure set_planet_flag = megastructure }
 		save_event_target_as = star_manip_system
 		owner = {
 			country_event = {id = stellar_manip.101}
@@ -225,6 +226,11 @@ stellar_manipulator_2 = {
 		save_event_target_as = star_manip_system
 		owner = {
 			country_event = {id = stellar_manip.103}
+		}
+		fromfrom = { save_event_target_as = star_harvester }
+		fromfrom.planet = {
+			save_event_target_as = star_being_harvested
+			planet_event = { id = stellar_manip.1000 days = 10 } #change to 730
 		}
 	}
 }
