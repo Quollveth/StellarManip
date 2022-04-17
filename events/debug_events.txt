@@ -23,5 +23,78 @@ country_event = {
 	}
 }
 
-
-
+#injector
+planet_event = {
+	id = stellar_manip.1001
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		event_target:star_injector = {
+			exists = this
+		}
+	}
+	immediate = {
+		event_target:star_being_injected = {
+			remove_planet_flag = has_megastructure
+			remove_planet_flag = megastructure
+			switch = {
+				trigger = is_planet_class
+				pc_b_star = {
+					solar_system = {
+						giga_create_o_star = yes
+					}
+				}
+				pc_m_giant_star = {
+					change_pc = pc_b_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_b
+					}
+				}
+				pc_a_star = {
+					change_pc = pc_b_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_b
+					}
+				}
+				pc_f_star = {
+					change_pc = pc_a_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_a
+					}
+				}
+				pc_g_star = {
+					change_pc = pc_f_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_f
+					}
+				}
+				pc_k_star = {
+					change_pc = pc_g_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_g
+					}
+				}
+				pc_m_star = {
+					change_pc = pc_k_star
+					if = {
+						limit = { stmp_is_unary = yes }
+						set_star_class = sc_k
+					}
+				}
+				pc_gigaignited_star = {
+					change_pc = pc_m_star
+					if = {
+						limit = { event_target:star_being_injected = { is_primary_star = yes } }
+						set_star_class = sc_m
+					}
+				}
+			}
+		}
+		remove_megastructure = event_target:star_injector
+	}
+}

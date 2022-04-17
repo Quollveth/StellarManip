@@ -16,3 +16,54 @@ giga_o_system_craft = {
 		}
 	}
 }
+
+giga_create_o_star = {
+	set_star_class = sc_giga_o_star
+	set_star_flag = giga_o_star_system
+	star = {
+		clear_deposits = yes
+		add_deposit = d_energy_10
+		add_deposit = d_energy_10
+		change_pc = pc_giga_o_star
+		set_planet_size = 25
+		add_modifier = {
+			modifier = giga_o_star_modifier
+			days = -1
+		}
+		create_ambient_object = {
+			type = "giga_o_star_nebula_1"
+			entity_offset_height = 0
+			location = this
+		}
+		last_created_ambient_object = {
+			set_location = {
+				target = prev
+				distance = 0
+				angle = random
+			}
+			set_ambient_object_flag = o_star_solar_wind
+		}
+	}
+	every_system_planet = {
+		limit = { 
+			OR = {
+				is_colonizable = yes
+				is_planet_class = pc_toxic
+				is_planet_class = pc_frozen
+				is_planet_class = pc_barren_cold
+			}
+		}
+		random_list = {
+			10 = { change_pc = pc_molten }
+			10 = { change_pc = pc_barren }
+			2 = { change_pc = pc_broken }
+			1 = { change_pc = pc_shattered }
+		}
+	}
+	every_system_planet = {
+		limit = {
+			planet_size > 5
+		}
+		change_planet_size = -3
+	}
+}

@@ -92,6 +92,11 @@ planet_event = {
 	id = stellar_manip.1000
 	is_triggered_only = yes
 	hide_window = yes
+	trigger = {
+		event_target:star_harvester = {
+			exists = this
+		}
+	}
 	immediate = {
 		event_target:star_being_harvested = {
 			remove_planet_flag = has_megastructure
@@ -180,7 +185,6 @@ planet_event = {
 		}
 	}
 	immediate = {
-		set_planet_flag = harvested_star
 		event_target:star_being_harvested = {
 			remove_planet_flag = has_megastructure
 			remove_planet_flag = megastructure
