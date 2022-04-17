@@ -18,7 +18,7 @@ country_event = {
 		hidden_effect = {
 			add_resource = { 
 				influence = 200
-				sr_stellar_plasma = 5000 ###give some stellar plasma
+				sr_stellar_plasma = @supernovae_plasma_production ###give some stellar plasma
 			}
 			event_target:giga_system = {
 
@@ -55,7 +55,6 @@ country_event = {
 						change_pc = pc_molten
 					}
 					add_deposit = d_iodizium_deposit
-					add_deposit = d_splasma_deposit ###adds stellar plasma deposits
 				}
 
 				create_ambient_object = {

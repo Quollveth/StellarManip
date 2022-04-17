@@ -1,0 +1,121 @@
+namespace = stellar_manip
+
+### MEGASTRUTCTURE CONSTRUCTION NOTIFICATIONS
+#site
+country_event = {
+	id = stellar_manip.101
+	title = stellar_manip.101.name
+	desc = stellar_manip.101.desc
+	picture = GFX_star_manip_02_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_start
+	location = event_target:star_manip_system
+
+	option = { #Good, good.
+		name = "stellar_manip.101.a"
+	}
+}
+#full
+country_event = {
+	id = stellar_manip.102
+	title = stellar_manip.102.name
+	desc = stellar_manip.102.desc
+	picture = GFX_star_manip_02_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_complete
+	location = event_target:star_manip_system
+
+	option = { #Good, good.
+		name = "stellar_manip.102.a"
+	}
+}
+#harvester
+country_event = {
+	id = stellar_manip.103
+	title = stellar_manip.103.name
+	desc = stellar_manip.103.desc
+	picture = GFX_star_manip_01_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_complete
+	location = event_target:star_manip_system
+
+	option = { #Good, good.
+		name = "stellar_manip.103.a"
+	}
+}
+#injector
+country_event = {
+	id = stellar_manip.104
+	title = stellar_manip.104.name
+	desc = stellar_manip.104.desc
+	picture = GFX_star_manip_01_background
+	is_triggered_only = yes
+	hide_window = no
+	show_sound = event_dyson_sphere_build_complete
+	location = event_target:star_manip_system
+
+	option = { #Good, good.
+		name = "stellar_manip.104.a"
+	}
+}
+
+### MONTHLY EVENT, REPLACE INJECTORS IF NO RESOURCE
+country_event = {
+	id = stellar_manip.100
+	is_triggered_only = yes
+	trigger = {
+		any_owned_megastructure = {
+			is_megastructure_type = stellar_manipulator_3
+		}
+		NOT = { has_resource = sr_stellar_plasma }
+	}
+	immediate = {
+		every_owned_megastructure = {
+			limit = { is_megastructure_type = stellar_manipulator_3 }
+			this.planet = { save_event_target_as = star_manip_planet }
+			remove_megastructure = this
+			solar_system = {
+				spawn_megastructure = {
+					type = stellar_manipulator_off
+					planet = event_target:star_manip_planet
+				}
+			}
+		}
+	}
+}
+
+### MAIN EVENT
+
+#o harvester
+planet_event = {
+	id = stellar_manip.1002
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		event_target:star_harvester = {
+			exists = this
+		}
+	}
+	immediate = {
+		set_planet_flag = harvested_star
+		event_target:star_being_harvested = {
+			change_pc = pc_b_star
+			remove_modifier = giga_o_star_modifier
+			clear_deposits = yes
+			solar_system = {
+				if = {
+					limit = { has_star_flag = giga_o_star_system }
+					set_star_class = sc_b
+					every_ambient_object = {
+						limit = { is_ambient_object_type = giga_o_star_nebula_1 }
+						destroy_ambient_object = this
+					}
+				}
+			}
+		}
+		remove_megastructure = event_target:star_harvester
+	}
+}

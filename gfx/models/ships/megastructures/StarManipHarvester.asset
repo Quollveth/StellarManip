@@ -1,7 +1,0 @@
-entity = {
-	name = stellar_mass_harvester_entity
-	cull_radius = 5000
-	locator = { name = "root"  position = { 0 0 0 } }
-	attach = { "root" = "automated_stripmine_1_part_big_entity" }
-	scale = 6.5
-}

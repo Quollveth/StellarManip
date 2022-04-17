@@ -1,0 +1,420 @@
+#site
+stellar_manipulator_0 = {
+	entity = "construction_platform_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	entity_offset = { x = -7 y = -7 }
+	build_time = 1260
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			unity = @giga_kilo_unity_cost
+		}
+
+		upkeep = {
+			energy = 5
+		}
+	}
+
+	prerequisites = { "tech_gigas_stellar_manip_2" }
+
+	possible = {
+		custom_tooltip = { fail_text = "requires_inside_border"		is_inside_border = from }
+	}
+
+	placement_rules = {
+		planet_possible = {
+			custom_tooltip = { fail_text = "requires_no_anomaly"				has_anomaly = no }
+			custom_tooltip = { fail_text = "requires_no_existing_megastructure"	planet_has_no_megastructure = yes }
+			custom_tooltip = { fail_text = "requires_survey_not_habitable"		is_surveyed = { who = prev.from status = yes } is_planet_habitable = no }
+			custom_tooltip = { fail_text = "requires_standard_planet_class"		OR = { giga_is_standard_star = yes is_planet_class = pc_giga_o_star is_planet_class = pc_gigaignited_star } }
+		}
+	}
+
+	ai_weight = {
+		factor = 10
+		#maybe i should actually make weights for once, maybe not
+	}
+
+	on_build_complete = {
+		save_event_target_as = star_manip_system
+		owner = {
+			country_event = {id = stellar_manip.101}
+		}
+	}
+}
+#full
+stellar_manipulator_1 = {
+	entity = "stellar_manip_full_nobeam_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	build_time = 1260
+	resources = {
+		category = megastructures
+		cost = { unity = @giga_kilo_unity_cost }
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_giga_o_star }
+			}
+			alloys = @manip_alloy_cost_o_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_b_star }
+			}
+			alloys = @manip_alloy_cost_b_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_giant_star }
+			}
+			alloys = @manip_alloy_cost_m_giant_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_a_star }
+			}
+			alloys = @manip_alloy_cost_a_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_f_star }
+			}
+			alloys = @manip_alloy_cost_f_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_g_star }
+			}
+			alloys = @manip_alloy_cost_g_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_k_star }
+			}
+			alloys = @manip_alloy_cost_k_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_star }
+			}
+			alloys = @manip_alloy_cost_m_star
+		}
+		cost = {
+			trigger = {
+				this.planet = { is_planet_class = pc_gigaignited_star }
+			}
+			alloys = @manip_alloy_cost_ignited_star
+		}
+
+		upkeep = {
+			energy = 50
+		}
+	}
+
+	upgrade_from = {
+		stellar_manipulator_0
+	}
+
+	prerequisites = { "tech_gigas_stellar_manip_2" }
+
+	ai_weight = {
+		factor = 10
+		#maybe i should actually make weights for once, maybe not
+	}
+
+	on_build_complete = {
+		save_event_target_as = star_manip_system
+		owner = {
+			country_event = {id = stellar_manip.102}
+		}
+		if = {
+			limit = { fromfrom.planet = { is_planet_class = pc_giga_o_star } }
+			fromfrom.planet = { save_event_target_as = star_manip_planet }
+			spawn_megastructure = {
+				type = stellar_manipulator_o_1
+				planet = event_target:star_manip_planet
+				owner = fromfrom.owner
+			}
+			remove_megastructure = fromfrom
+		}
+	}
+}
+
+#harvester
+stellar_manipulator_2 = {
+	entity = "stellar_manip_full_entity"
+	construction_entity = "stellar_manip_full_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	build_time = 1260
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 5000
+			unity = @giga_kilo_unity_cost
+		}
+
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_b_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_b_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_giant_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_m_giant_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_a_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_a_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_f_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_f_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_g_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_g_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_k_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_k_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_m_star
+		}
+		produces = {
+			trigger = {
+				this.planet = { is_planet_class = pc_gigaignited_star }
+			}
+			sr_stellar_plasma = @harvester_plasma_prodcution_ignited_star
+		}
+
+		upkeep = {
+			energy = 250
+		}
+	}
+
+	upgrade_from = {
+		stellar_manipulator_1
+	}
+
+	ai_weight = {
+		factor = 10
+		#maybe i should actually make weights for once, maybe not
+	}
+
+	on_build_complete = {
+		save_event_target_as = star_manip_system
+		owner = {
+			country_event = {id = stellar_manip.103}
+		}
+	}
+}
+#injector
+stellar_manipulator_3 = {
+	entity = "stellar_manip_full_entity"
+	construction_entity = "stellar_manip_full_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	build_time = 1260
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 5000
+			unity = @giga_kilo_unity_cost
+		}
+
+		upkeep = {
+			energy = 150
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_b_star }
+			}
+			sr_stellar_plasma = @injector_plasma_b_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_giant_star }
+			}
+			sr_stellar_plasma = @injector_plasma_m_giant_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_a_star }
+			}
+			sr_stellar_plasma = @injector_plasma_a_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_f_star }
+			}
+			sr_stellar_plasma = @injector_plasma_f_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_g_star }
+			}
+			sr_stellar_plasma = @injector_plasma_g_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_k_star }
+			}
+			sr_stellar_plasma = @injector_plasma_k_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_m_star }
+			}
+			sr_stellar_plasma = @injector_plasma_m_star
+		}
+		upkeep = {
+			trigger = {
+				this.planet = { is_planet_class = pc_gigaignited_star }
+			}
+			sr_stellar_plasma = @injector_plasma_ignited_star
+		}
+	}
+
+	upgrade_from = {
+		stellar_manipulator_1
+	}
+
+	ai_weight = {
+		factor = 10
+		#maybe i should actually make weights for once, maybe not
+	}
+
+	on_build_complete = {
+		if = {
+			limit = { owner = { has_country_flag = restarted_injector } }
+			owner = { remove_country_flag = restarted_injector }
+		} else = {
+			save_event_target_as = star_manip_system
+			owner = {
+				country_event = {id = stellar_manip.103 }
+			}
+		}
+	}
+}
+#o class full
+stellar_manipulator_o_1 = {
+	entity = "stellar_manip_o_full_nobeam_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 50
+		}
+	}
+	potential = {
+		always = no
+	}
+}
+
+#o harvester
+stellar_manipulator_o_2 = {
+	entity = "stellar_manip_o_full_entity"
+	construction_entity = "stellar_manip_full_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	build_time = 1260
+	resources = {
+		category = megastructures
+		cost = {
+			energy = 10000
+			unity = @giga_kilo_unity_cost
+		}
+		produces = {
+			sr_stellar_plasma = @harvester_plasma_prodcution_o_star	
+		}
+		upkeep = {
+			energy = 250
+		}
+	}
+	upgrade_from = {
+		stellar_manipulator_o_1
+	}
+
+	ai_weight = {
+		factor = 10
+		#maybe i should actually make weights for once, maybe not
+	}
+
+	on_build_complete = {
+		save_event_target_as = star_manip_system
+		owner = {
+			country_event = {id = stellar_manip.103}
+		}
+		fromfrom = { save_event_target_as = star_harvester }
+		fromfrom.planet = {
+			save_event_target_as = star_being_harvested
+			planet_event = { id = stellar_manip.1002 days = 14 } #change to 1460
+		}
+	}
+}
+
+stellar_manipulator_off = {
+	entity = "stellar_manip_full_nobeam_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	potential = { always = no }
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 15
+		}
+	}
+}
+stellar_manipulator_on = {
+	entity = "stellar_manip_full_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 150
+		}
+		cost = {
+			sr_stellar_plasma = 100
+			energy = 5000
+		}
+	}
+	upgrade_from = {
+		stellar_manipulator_off
+	}
+	build_time = 30
+	on_build_complete = {
+		owner = { set_country_flag = restarted_injector }
+		fromfrom.planet = { save_event_target_as = star_manip_planet }
+		spawn_megastructure = {
+			type = stellar_manipulator_3
+			planet = event_target:star_manip_planet
+			owner = fromfrom.owner
+		}
+		remove_megastructure = fromfrom
+	}
+}

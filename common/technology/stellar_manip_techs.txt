@@ -8,63 +8,53 @@ tech_gigas_stellar_manip_1 = { #Base, given by the AP, enables the whole mod als
 
 	prereqfor_desc = {
 		custom = {
-			title = "basic_stellar_manip"
-			desc = "basic_stellar_manip_desc"
+			title = "basic_stellar_manip1"
+			desc = "basic_stellar_manip1_desc"
 		}
 	}
-}
-
-tech_stellar_manip_retrofit = { #Star Lifters and Dyson Spheres produce plasma
-	cost = @tier5cost1
-	area = engineering
-	tier = 5
-	category = { voidcraft }
-	is_rare = yes
-	weight = @tier5weight1
-
-	prerequisites = { "tech_gigas_stellar_manip_1" }
 	prereqfor_desc = {
-		custom = { title = "allow_mega_retrofit"	desc = "allow_mega_retrofit_desc" }
-	}
-	
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
-			}
+		custom = {
+			title = "basic_stellar_manip2"
+			desc = "basic_stellar_manip2_desc"
 		}
 	}
-
-	ai_weight = {
-		factor = 3
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
-			}
+	prereqfor_desc = {
+		custom = {
+			title = "basic_stellar_manip3"
+			desc = "basic_stellar_manip3_desc"
 		}
 	}
 }
 
-tech_stellar_manip_harvester = { #Enables Stellar Harvester decision/mega
+tech_gigas_stellar_manip_2 = { #Enables Stellar Manip mega
 	cost = @tier5cost2
 	area = engineering
 	tier = 5
-	category = { voidcraft }
+	category = { materials }
 	is_rare = yes
 	weight = @tier5weight2
 
 	prerequisites = { "tech_gigas_stellar_manip_1" }
 
+	prereqfor_desc = {
+		custom = {
+			title = "advanced_stellar_manip1"
+			desc = "advanced_stellar_manip1_desc"
+		}
+	}
+	prereqfor_desc = {
+		custom = {
+			title = "advanced_stellar_manip2"
+			desc = "advanced_stellar_manip2_desc"
+		}
+	}
+
 	weight_modifier = {
 		modifier = {
 			factor = 1.25
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
+				has_trait = "leader_trait_expertise_materials"
 			}
 		}
 	}
@@ -75,42 +65,7 @@ tech_stellar_manip_harvester = { #Enables Stellar Harvester decision/mega
 			factor = 1.25
 			research_leader = {
 				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
-			}
-		}
-	}
-}
-
-tech_stellar_manip_injector = { #Enables stellar injector decision
-	cost = @tier5cost3
-	area = engineering
-	tier = 5
-	category = { voidcraft }
-	is_rare = yes
-	weight = @tier5weight3
-
-	prerequisites = {
-		"tech_gigas_stellar_manip_1"
-		"tech_stellar_manip_harvester"
-	}
-
-	weight_modifier = {
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
-			}
-		}
-	}
-
-	ai_weight = {
-		factor = 3
-		modifier = {
-			factor = 1.25
-			research_leader = {
-				area = engineering
-				has_trait = "leader_trait_expertise_voidcraft"
+				has_trait = "leader_trait_expertise_materials"
 			}
 		}
 	}
@@ -125,7 +80,7 @@ tech_stellar_assembler = { #systemcraft assembler
 	weight = @tier5weight3
 
 	prerequisites = {
-		"tech_stellar_manip_injector"
+		"tech_stellar_manip_2"
 		"giga_tech_war_system_6"
 		"giga_tech_planet_assembly"
 	}
