@@ -230,7 +230,7 @@ stellar_manipulator_2 = {
 		fromfrom = { save_event_target_as = star_harvester }
 		fromfrom.planet = {
 			save_event_target_as = star_being_harvested
-			planet_event = { id = stellar_manip.1000 days = 730 } #2 years
+			planet_event = { id = stellar_manip.1000 days = 7 } #2 years 730
 		}
 	}
 }
@@ -323,7 +323,12 @@ stellar_manipulator_3 = {
 		fromfrom = { save_event_target_as = star_injector }
 		fromfrom.planet = {
 			save_event_target_as = star_being_injected
-			planet_event = { id = stellar_manip.1001 days = 10 } #change to 730
+			if = {
+				limit = { is_planet_class = pc_giga_o_star }
+				planet_event = { id = stellar_manip.1001 days = 30 } #change to 1460
+			} else = {
+				planet_event = { id = stellar_manip.1001 days = 10 } #change to 730
+			}
 		}
 	}
 }
@@ -381,7 +386,7 @@ stellar_manipulator_o_2 = {
 		fromfrom = { save_event_target_as = star_harvester }
 		fromfrom.planet = {
 			save_event_target_as = star_being_harvested
-			planet_event = { id = stellar_manip.1002 days = 1460 } #4 years
+			planet_event = { id = stellar_manip.1002 days = 14 } #4 years 1460
 		}
 	}
 }

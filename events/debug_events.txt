@@ -46,51 +46,65 @@ planet_event = {
 				}
 				pc_m_giant_star = {
 					change_pc = pc_b_star
-					if = {
-						limit = { stmp_is_unary = yes }
-						set_star_class = sc_b
+					solar_system = {
+						if = {
+							limit = { giga_is_bitrinary = no }
+							set_star_class = sc_b
+						}
 					}
 				}
 				pc_a_star = {
 					change_pc = pc_b_star
-					if = {
-						limit = { stmp_is_unary = yes }
-						set_star_class = sc_b
+					solar_system = {
+						if = {
+							limit = { giga_is_bitrinary = no }
+							set_star_class = sc_b
+						}
 					}
 				}
 				pc_f_star = {
 					change_pc = pc_a_star
-					if = {
-						limit = { stmp_is_unary = yes }
-						set_star_class = sc_a
+					solar_system = {
+						if = {
+							limit = { giga_is_bitrinary = no }
+							set_star_class = sc_a
+						}
 					}
 				}
 				pc_g_star = {
 					change_pc = pc_f_star
-					if = {
-						limit = { stmp_is_unary = yes }
-						set_star_class = sc_f
+					solar_system = {
+						if = {
+							limit = { giga_is_bitrinary = no }
+							set_star_class = sc_f
+						}
 					}
 				}
 				pc_k_star = {
 					change_pc = pc_g_star
-					if = {
-						limit = { stmp_is_unary = yes }
-						set_star_class = sc_g
+					solar_system = {
+						if = {
+							limit = { giga_is_bitrinary = no }
+							set_star_class = sc_g
+						}
 					}
 				}
 				pc_m_star = {
 					change_pc = pc_k_star
-					if = {
-						limit = { stmp_is_unary = yes }
+					solar_system = {
+						if = {
+						limit = { giga_is_bitrinary = no }
 						set_star_class = sc_k
+						}
 					}
 				}
 				pc_gigaignited_star = {
 					change_pc = pc_m_star
-					if = {
-						limit = { event_target:star_being_injected = { is_primary_star = yes } }
+					solar_system = {
+						if = {
+						limit = { giga_is_bitrinary = no }
 						set_star_class = sc_m
+						}
 					}
 				}
 			}

@@ -107,7 +107,7 @@ planet_event = {
 					change_pc = pc_a_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_a
 						}
 					}
@@ -116,7 +116,7 @@ planet_event = {
 					change_pc = pc_m_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_m
 						}
 					}
@@ -125,7 +125,7 @@ planet_event = {
 					change_pc = pc_f_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_f
 						}
 					}
@@ -134,7 +134,7 @@ planet_event = {
 					change_pc = pc_g_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_g
 						}
 					}
@@ -143,7 +143,7 @@ planet_event = {
 					change_pc = pc_k_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_k
 						}
 					}
@@ -152,7 +152,7 @@ planet_event = {
 					change_pc = pc_m_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_m
 						}
 					}
@@ -161,7 +161,7 @@ planet_event = {
 					change_pc = pc_t_star
 					solar_system = {
 						if = {
-							limit = { stmp_is_unary = yes }
+							limit = { giga_is_bitrinary = no }
 							set_star_class = sc_t
 						}
 					}
