@@ -18,7 +18,7 @@ country_event = {
 		hidden_effect = {
 			add_resource = { 
 				influence = 200
-				sr_stellar_plasma = @supernovae_plasma_production ###give some stellar plasma
+				sr_stellar_plasma = 15000 ###give some stellar plasma
 			}
 			event_target:giga_system = {
 

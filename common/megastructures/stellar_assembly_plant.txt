@@ -501,7 +501,7 @@ systemcraft_assembler_make_system = { #print normal
 			alloys = 1750000				#250k alloys per planet for 1M on planetcrafts + 30k per moon for 150k + 600k for the systemcraft (it costs 550k, so i added a bit more) for a total of 1.750.000
 			sr_solar_energy = 140			#planetary matter || 26 per planetcraft * 4 = 104 on planetcrafts + 7 per moon * 5 = 35 on moons for a total of 139
 			energy = 2000000				#just made it 2M, i'm not doing more math
-			sr_stellar_plasma = 16000		#idk, maybe balance this eventually
+			sr_stellar_plasma = 10000		#idk, maybe balance this eventually
 		}
 		upkeep = {
 			energy = 3000
@@ -589,7 +589,7 @@ systemcraft_assembler_make_o_system = { #print o class
 			alloys = 5000000			
 			sr_solar_energy = 140		
 			energy = 2000000		
-			sr_stellar_plasma = 60000
+			sr_stellar_plasma = 40000
 		}
 		upkeep = {
 			energy = 3000

@@ -1,0 +1,98 @@
+## OVERWRITES THE STAR EATER EFFECT TO GIVE PLASMA
+planet_event = {
+	id = crisis.4550
+	hide_window = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_threat = { who = from.owner amount = 10 }
+		from = {
+			owner = {
+				save_event_target_as = crisis_country
+				add_victory_score = {
+					source = destroyed_stars_score
+					score = 10
+				}
+				switch = {
+					trigger = galaxy_size
+					huge = { add_resource = { sr_dark_matter = 1000 } }
+					large = { add_resource = { sr_dark_matter = 1500 } }
+					medium = { add_resource = { sr_dark_matter = 2000 } }
+					small = { add_resource = { sr_dark_matter = 2500 } }
+					tiny = { add_resource = { sr_dark_matter = 3000 } }
+				}
+				if = {
+					limit = {
+						NOT = { has_country_flag = cracked_first_star }
+					}
+					set_country_flag = cracked_first_star
+				}
+				add_resource = { sr_stellar_plasma = 15000 }
+			}
+		}
+		solar_system = { save_event_target_as = destroyed_system }
+		every_playable_country = {
+			limit = {
+				is_ai = no
+				has_communications = event_target:crisis_country
+				NOR = {
+					is_same_value = event_target:crisis_country
+					has_country_flag = can_build_star_eaters
+					has_country_flag = star_eater_alert@event_target:crisis_country
+				}
+				intel_level = {
+					system = event_target:destroyed_system
+					level = none
+				}
+			}
+			country_event = { id = crisis.6180 }
+		}
+		every_playable_country = {
+			limit = {
+				is_ai = no
+				has_communications = event_target:crisis_country
+				NOR = {
+					is_same_value = event_target:crisis_country
+					has_country_flag = can_build_star_eaters
+					has_country_flag = star_eater_alert@event_target:crisis_country
+				}
+				intel_level = {
+					system = event_target:destroyed_system
+					level > none
+				}
+			}
+			country_event = { id = crisis.6181 }
+		}
+		every_playable_country = {
+			limit = {
+				is_ai = no
+				has_communications = event_target:crisis_country
+				NOR = {
+					is_same_value = event_target:crisis_country
+					has_country_flag = star_eater_alert@event_target:crisis_country
+				}
+				has_country_flag = can_build_star_eaters
+			}
+			country_event = { id = crisis.6182 }
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = event_target:crisis_country
+				NOT = {
+					has_opinion_modifier = {
+						who = event_target:crisis_country
+						modifier = opinion_destroying_systems
+					}
+				}
+			}
+			add_opinion_modifier = {
+				who = event_target:crisis_country
+				modifier = opinion_destroying_systems
+			}
+		}
+		solar_system = {
+			destroy_star_system = yes
+		}
+	}
+}
