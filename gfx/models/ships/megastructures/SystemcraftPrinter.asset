@@ -4,7 +4,6 @@ entity = {
 	locator = { name = "root"  position = { 0 0 0 } }
 	locator = { name = "loc01" position = { 0 0 0 } rotation = { -90 0 0} }
 
-	#attach = { root = "war_system_printer_5_entity" }
 	attach = { loc01 = "resized_systemcraft_entity" }
 
 	cull_radius = 5000

@@ -128,17 +128,28 @@
     stellar_manip.100.desc:0 "Due to lack of £sr_stellar_plasma£ §Ystellar plasma§! our stellar plasma injectors have turned off and must be restarted to continue the process\n§YIf the option to do so is not showing save and load as it breaks sometimes."
     stellar_manip.100.a:0 "We must do so at once!"
   #Finished
-    stellar_manip.1001.name:0 "Stellar Harvesting Finished"
-    stellar_manip.1001.desc:0 "Our stellar mass harvester in the [From.GetName] system has finished and the star's size has decreased"
+    stellar_manip.2001.name:0 "Stellar Harvesting Finished"
+    stellar_manip.2001.desc:0 "Our stellar mass harvester in the [From.GetName] system has finished and the star's size has decreased, we recovered some alloys while dismantling the structure"
   
-    stellar_manip.1002.name:0 "Stellar Injecting Finished"
-    stellar_manip.1002.desc:0 "Our stellar mass injector in the [From.GetName] system has finished and the star's size has increased"
- 
- 
+    stellar_manip.2004.name:0 "Stellar Injecting Finished"
+    stellar_manip.2004.desc:0 "Our stellar mass harvester in the [From.GetName] system has finished and the star's size has increased, we recovered some alloys while dismantling the structure"
+  #Fully Finished
+    stellar_manip.2002.name:0 "Automated Stellar Harvesting Finished"
+    stellar_manip.2002.desc:0 "Our stellar mass harvester in the [From.GetName] system has fully finished, the star has been reduced down to a class T, we recovered some alloys while dismantling the structure"
+
+    stellar_manip.2005.name:0 "Automated Stellar Injection Fully Finished"
+    stellar_manip.2005.desc:0 "Our stellar mass injector in the [From.GetName] system has fully finished and the star has been increased to a class O, we have recovered some alloys while dismantling the structure"
+  #Out of Energy
+    stellar_manip.2003.name:0 "Automated Harvester Out of Energy"
+    stellar_manip.2003.desc:0 "Our automated stellar harvester in the [From.GetName] system has stopped as we do not have enough energy to continue the process and must be restarted manually"
+    stellar_manip.2003.a:0 "We must do so at once"
+
+    stellar_manip.2006.name:0 "Automated Injector Out of Energy"
+    stellar_manip.2006.desc:0 "Our automated stellar injector in the [From.GetName] system has stopped as we do not have enough energy to continue the process and must be restarted manually"
  #Star Printer Events
    star_printer.101.name:0 "Systeemcraft Assembler Site Constructed"
    star_printer.101.desc:0 "We have begun the construction of a Systemcraft Assembler, once completed this structure will allow us to efficiently build systemcrafts without the previous limitations"
-   star_printer.101.a:0 "We shall forever change the galaxy's history"
+   star_printer.101.a:0 "poggers"
 
    star_printer.102.name:0 "Systemcraft Assembler Stellar Ignitor Constructed"
    star_printer.102.desc:0 "A stellar ignitor capable of building a star from scratch has been finished, this structure shall serve as the heart for a systemcraft assembler capable of building the most powerful ship in the galaxy"

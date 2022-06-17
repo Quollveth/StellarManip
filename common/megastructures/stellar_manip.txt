@@ -17,7 +17,9 @@ stellar_manipulator_0 = {
 			energy = 5
 		}
 	}
-
+	
+	construction_blocks_and_blocked_by = none
+	
 	prerequisites = { "tech_gigas_stellar_manip_2" }
 
 	possible = {
@@ -226,17 +228,24 @@ stellar_manipulator_2 = {
 
 	on_build_complete = {
 		save_event_target_as = star_manip_system
+		if = {
+			limit = { owner = { NOR = { has_country_flag = restarted_harvester has_country_flag = auto_harvester } } }
+			owner = {
+				country_event = {id = stellar_manip.103}
+			}
+		}
 		owner = {
-			country_event = {id = stellar_manip.103}
+			remove_country_flag = auto_harvester
+			remove_country_flag = restarted_harvester
 		}
 		fromfrom = { save_event_target_as = star_harvester }
 		fromfrom.planet = {
 			save_event_target_as = star_being_harvested
 			if = {
 				limit = { is_planet_class = pc_giga_o_star }
-				planet_event = { id = stellar_manip.1000 days = 1460 } #4 years, for o classes it's doubled
+				planet_event = { id = stellar_manip.1000 days = 1460 } #1460 - 4 years, for o classes it's doubled
 			} else = {
-				planet_event = { id = stellar_manip.1000 days = 730 } #2 years
+				planet_event = { id = stellar_manip.1000 days = 730 } #730 - 2 years
 			}
 		}
 	}
@@ -319,8 +328,8 @@ stellar_manipulator_3 = {
 
 	on_build_complete = {
 		if = {
-			limit = { owner = { has_country_flag = restarted_injector } }
-			owner = { remove_country_flag = restarted_injector }
+			limit = { owner = { OR = { has_country_flag = restarted_injector has_country_flag = auto_injector } } }
+			owner = { remove_country_flag = restarted_injector remove_country_flag = auto_injector }
 		} else = {
 			save_event_target_as = star_manip_system
 			owner = {
@@ -332,9 +341,9 @@ stellar_manipulator_3 = {
 			save_event_target_as = star_being_injected
 			if = {
 				limit = { is_planet_class = pc_b_star }
-				planet_event = { id = stellar_manip.1001 days = 1460 } #4 years, for o classes it's doubled
+				planet_event = { id = stellar_manip.1001 days = 14 } #1460 - 4 years, for o classes it's doubled
 			} else = {
-				planet_event = { id = stellar_manip.1001 days = 730 } #2 years
+				planet_event = { id = stellar_manip.1001 days = 7 } #730 - 2 years
 			}
 		}
 	}
@@ -436,6 +445,50 @@ stellar_manipulator_on = {
 		fromfrom.planet = { save_event_target_as = star_manip_planet }
 		spawn_megastructure = {
 			type = stellar_manipulator_3
+			planet = event_target:star_manip_planet
+			owner = fromfrom.owner
+		}
+		remove_megastructure = fromfrom
+	}
+}
+
+#disabled harvester
+stellar_harvester_off = {
+	entity = "stellar_manip_full_nobeam_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	potential = { always = no }
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 15
+		}
+	}
+}
+stellar_harvester_on = {
+	entity = "stellar_manip_full_entity"
+	construction_entity = "stellar_manip_full_nobeam_entity"
+	portrait = "GFX_star_manip_01_background"
+	place_entity_on_planet_plane = yes
+	resources = {
+		category = megastructures
+		upkeep = {
+			energy = 150
+		}
+		cost = {
+			energy = 5000
+		}
+	}
+	upgrade_from = {
+		stellar_harvester_off
+	}
+	build_time = 30
+	on_build_complete = {
+		owner = { set_country_flag = restarted_harvester }
+		fromfrom.planet = { save_event_target_as = star_manip_planet }
+		spawn_megastructure = {
+			type = stellar_manipulator_2
 			planet = event_target:star_manip_planet
 			owner = fromfrom.owner
 		}

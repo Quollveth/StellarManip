@@ -218,12 +218,12 @@ war_system_o_4 = {
 	entity = "war_system_o_phase_04_entity"
 	construction_entity = "war_system_o_phase_04_construction_entity"
 	portrait = "GFX_megastructure_moon"
-	upgrade_from = { war_system_o_3 unity = @giga_tera_unity_cost }
+	upgrade_from = { war_system_o_3 }
 
 	build_time = 10800
 	resources = {
 		category = megastructures
-		cost = { alloys = 300000 }
+		cost = { alloys = 300000 unity = @giga_tera_unity_cost }
 		upkeep = {
 			energy = 2250
 			alloys = 1500
@@ -286,12 +286,12 @@ war_system_o_5 = {
 	entity = ""
 	construction_entity = "war_system_o_phase_05_construction_entity"
 	portrait = "GFX_megastructure_moon"
-	upgrade_from = { war_system_o_4 unity = @giga_tera_unity_cost }
+	upgrade_from = { war_system_o_4 }
 
 	build_time = 10800
 	resources = {
 		category = megastructures
-		cost = { alloys = 100000 }
+		cost = { alloys = 100000 unity = @giga_tera_unity_cost }
 		upkeep = {
 			energy = 2250
 			alloys = 1500

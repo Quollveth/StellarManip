@@ -3,3 +3,9 @@ on_monthly_pulse_country = {
 		stellar_manip.100
 	}
 }
+
+on_game_start = {
+    events = {
+        stellar_manip.1
+    }
+}
